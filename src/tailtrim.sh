@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # First, gather all the files
-# Expand all directories
-files=""
+files="$1"
 
 # Start processing each file
 for file in "$files"
 do
-    if []; then
+    filesize=(du --block=1 "$file" | awk '{print $1;}')
+    if [ $filesize -lt $((1048576*16)) ]
+    then
         # If the file is small, directly trim it
         python3 tailtrim.py "$file"
     else
