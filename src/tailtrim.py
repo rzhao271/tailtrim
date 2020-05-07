@@ -2,7 +2,8 @@ from tailterminator import TailTerminator
 
 class TailTrimmer:
     def __init__(self, use_crlf):
-        self._terminator = TailTerminator(use_crlf).get_terminator()
+        terminator = TailTerminator(use_crlf)
+        self._terminator_str = terminator.get_terminator()
 
     """
     Trims a file.
@@ -17,16 +18,19 @@ class TailTrimmer:
         if file_name is None:
             return
 
-        terminator = self._terminator
+        terminator = self._terminator_str
         if swap_file_name is not None:
             assert swap_file_name != file_name
             # Assumption: the swap file contains the original contents
             # so we read from it and write back to the original file
             with open(swap_file_name, 'r') as read_file:
                 with open(file_name, 'w') as write_file:
-                    line = read_file.readline()
-                    trimmed_line = line.rstrip() + terminator
-                    write_file.write(trimmed_line)
+                    while True:
+                        line = read_file.readline()
+                        if len(line) == 0:
+                            break # reached EOF
+                        trimmed_line = line.rstrip() + terminator
+                        write_file.write(trimmed_line)
         else:
             file_lines = []
             with open(file_name, 'r') as f:
