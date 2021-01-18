@@ -1,9 +1,13 @@
 language: python
-os: linux
-python: "3.6"
+os: 
+  - linux
+python: 
+  - "3.8"
+  - "3.7"
+  - "3.6"
+  - "3.5"
 install:
   - pip install -r requirements.txt
 script:
-  - cd tests && pytest && cd -
-  - cd tests && ./tailtrim_test.sh && cd -
-  - cd sample && python3 sample.py && cd -
+  - cd tailtrim/test && pytest && cd -
+  - cd tailtrim/test && ./tailtrim_test.sh && cd -
