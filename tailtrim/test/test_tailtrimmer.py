@@ -38,6 +38,8 @@ def test_tailtrim_null_file():
     try:
         trimmer.trim_file(None)
         assert False
+    except AssertionError:
+        raise
     except:
         pass
 
@@ -71,9 +73,10 @@ def test_tailtrim_double_file_samename(init_file_with_swap):
         trimmer = TailTrimmer(False, True, False)
         trimmer.trim_file(_filename)
         assert False
+    except AssertionError:
+        raise
     except:
         pass
-
 
 def test_tailtrim_double_file_lf(init_single_file):
     trimmer = TailTrimmer(False, True, False)
