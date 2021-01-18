@@ -20,6 +20,9 @@ Writing up this library introduced me to the following, though:
     - docstrings
     - modules
     - pytest
+    - subprocess
+
+so it was worth.
 
 ## Usage
 
