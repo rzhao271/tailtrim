@@ -7,5 +7,5 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - cd tailtrim/test && pytest && cd -
+  - pytest
   - cd tailtrim/test && ./test_tailtrim.sh && cd -
