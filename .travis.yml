@@ -2,12 +2,10 @@ language: python
 os: 
   - linux
 python: 
+  - "3.9"
   - "3.8"
-  - "3.7"
-  - "3.6"
-  - "3.5"
 install:
   - pip install -r requirements.txt
 script:
   - cd tailtrim/test && pytest && cd -
-  - cd tailtrim/test && ./tailtrim_test.sh && cd -
+  - cd tailtrim/test && ./test_tailtrim.sh && cd -
