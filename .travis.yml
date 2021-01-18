@@ -8,4 +8,5 @@ install:
   - pip install -r requirements.txt
 script:
   - pytest
+  - python -m mypy .
   - cd tailtrim/test && ./test_tailtrim.sh && cd -
