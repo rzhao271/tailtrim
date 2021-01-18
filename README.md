@@ -1,6 +1,6 @@
 # TailTrim
 
-[![Travis (.com) branch](https://img.shields.io/travis/com/rzhao271/tailtrim/master)](https://travis-ci.com/github/rzhao271/tailtrim)
+[![Travis (.com) branch](https://img.shields.io/travis/com/rzhao271/tailtrim/main)](https://travis-ci.com/github/rzhao271/tailtrim)
 
 ## About
 
